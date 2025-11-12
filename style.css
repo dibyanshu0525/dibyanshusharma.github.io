@@ -1,0 +1,1702 @@
+/* style.css - Complete as of Header Implementation */
+
+/* ------------------------- */
+/* --- Global Styles --- */
+/* ------------------------- */
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Apply box-sizing globally */
+    scroll-behavior: smooth;
+    scrollbar-width: none;  /* For smooth scrolling when clicking nav links */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; /* Inherit box-sizing */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Or your chosen minimal font */
+    line-height: 1.5;
+    margin: 0; /* Crucial: ensure no body margin */
+    background-color: #ffffff; /* Off-white background */
+    color: #4b4b4b; /* Dark gray text */
+    /* This padding-top MUST match your header's height to prevent
+       content from being hidden underneath the sticky header */
+    padding-top: 0px; /* Adjust if your header height changes from 80px */
+     -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* This hides the scrollbar completely */
+}
+
+.container { /* General purpose container, if needed outside header */
+   
+    max-width: 85%;
+    margin-left: 5%;
+    
+    padding-left: 0px; /* Add side padding to the container itself */
+    padding-right: 8%;
+}
+
+.container-f { /* General purpose container, if needed outside header */
+   
+    max-width: 70%;
+    padding-left: 200px;
+    margin-left: 10%;
+     /* Add side padding to the container itself */
+    
+}
+
+/* ------------------------- */
+/* --- Header Styles --- */
+/* ------------------------- */
+
+#main-header {
+    transition: background-color 1s ease-in-out, 
+                box-shadow 1s ease-in-out,
+                color 1s ease-in-out;
+                height :1s ease-in-out;
+    background-color: #ffffff; /* White header background */
+     /* background-image: linear-gradient(to right, #8360c3, #2ebf91); */
+    font-weight: bold;
+    font-size: large;
+    color: #333333;
+    position: sticky;
+    top: 0;      /* Stick to the very top of the viewport */
+    left: 0;     /* Align to the left of the viewport */
+    width: 100%; /* Take full viewport width */
+    z-index: 1000; /* Ensure header stays on top */
+   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);  Softer shadow for depth */
+    height: 100px; /* Define header height. Body padding-top should match this. */
+    display: flex;
+    align-items: center; /* Vertically align content within the header */
+}
+
+#main-header.header-scrolled {
+     transition: background-color 1s ease-in-out, 
+                box-shadow 1s ease-in-out,
+                color 1s ease-in-out;
+                height :1s ease-in-out;
+    /* background-color: #ededed; */
+    background-image: linear-gradient(to right, #fcbc98, #f1e1c2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Same as your body's off-white background to "blend" */
+    /* For a true transparent effect over varied content (more complex to ensure readability): */
+    /* background-color: transparent; */
+    
+    font-weight: bold;
+    font-size: large;
+    color: #333333;
+    position: sticky;
+    top: 0;      /* Stick to the very top of the viewport */
+    left: 0;     /* Align to the left of the viewport */
+    width: 100%; /* Take full viewport width */
+    z-index: 1000; /* Ensure header stays on top */
+   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);  Softer shadow for depth */
+    height: 60px; /* Define header height. Body padding-top should match this. */
+    display: flex;
+    align-items: center; /* Vertically align content within the header */
+    /* If you were to use a transparent background and content underneath could be dark,
+       you might also need to change text/icon colors here for contrast:
+    */
+    /* color: #ffffff; */ /* Example for dark underlying content */
+    /* .logo { color: #ffffff; } */
+    /* #nav-links li a { color: #ffffff; } */
+    /* #theme-toggle { color: #ffffff; border-color: #ffffff;} */
+    /* .hamburger-bar { background-color: #ffffff; } */
+}
+
+#main-header .header-container {
+    /* This container is specific to the header for its content layout */
+    width: 90%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px; /* Side padding for content within the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /* Make header-container fill header height */
+}
+
+#main-header .logo {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #333333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Desktop Navigation --- */
+#main-nav {
+    display: flex;
+    align-items: center;
+}
+
+#nav-links { /* The UL element for navigation links */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Links in a row on desktop */
+    align-items: center;
+}
+
+#nav-links li {
+    /* Space between links */
+    margin-left: 25px; /* Space between links */
+    position: relative;
+}
+#nav-links li a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 8px 0; /* Vertical padding, horizontal spacing by margin-left on li */
+    position: relative; /* For potential underline effects if you add them */
+    transition: color 0.2s ease;
+}
+#nav-links li a:hover,
+#nav-links li a.active { /* .active class to be added by JavaScript for current page */
+    color: #777777;
+    font-weight: bold; /* Subtle color change on hover/active, no background */
+}
+#nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #555;
+    transition: width 0.3s ease;
+}
+#nav-links li a:hover::after {
+    width: 100%;
+}
+/* --- Dropdown Arrow Styling --- */
+
+
+.dropdown-arrow {
+    font-size: 1.5em; /* Adjust size of the arrow */
+    margin-left: 0px;
+    margin-top: 0px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Rotate arrow when parent is hovered (if desired) */
+
+.dropdown-parent:hover .dropdown-arrow {
+    transform: rotate(360deg);
+}
+
+
+/* --- Dropdown Menu Basic Styling & Positioning --- */
+.dropdown-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0px 0; /* Padding at the top/bottom of the dropdown box */
+    background-color: #ffffff; /* White background for dropdown */
+    border: 0px solid #eeeeee; /* Light border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    border-radius: 4px;
+    position: absolute; /* Position relative to the parent li */
+    top: 100%; /* Position it right below the parent item */
+    left: 0; /* Align with the left edge of the parent item */
+    min-width: 200px; /* Minimum width of the dropdown */
+    z-index: 1001; /* Ensure dropdown is above other header content but below modals if any */
+
+    /* --- Initial state for animation --- */
+    opacity: 20%;
+    visibility: hidden;
+    transform: translateY(10px); /* Start slightly lower for slide-up effect */
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out, visibility 0.25s ease-out;
+}
+
+/* --- Show Dropdown on Parent Hover --- */
+.dropdown-parent:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide to final position */
+}
+
+/* --- Dropdown Menu Item Styling --- */
+.dropdown-menu li {
+    margin-left: 0; /* Reset margin from parent nav */
+}
+
+.dropdown-menu li a {
+    display: block; /* Make links take full width of dropdown */
+    padding: 10px 20px; /* Padding for dropdown links */
+    color: #333333;
+    text-decoration: none;
+    font-size: 0.85em; /* Slightly smaller font for sub-items */
+    white-space: nowrap; /* Prevent text wrapping in dropdown items */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f8f8f8; /* Light grey background on hover for dropdown items */
+    color: #000000; /* Darker text on hover */
+}
+/* --- Theme Toggle Button --- */
+
+#theme-toggle {
+    background: none;
+    border: 1px solid #d0d0d0;
+    color: #333333;
+    padding: 7px 9px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1em; /* Adjust icon size if using text/character */
+    margin-left: 25px; /* Space from navigation links */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #5b5b5b; /* Very light grey on hover */
+    border-color: #bbbbbb;
+    
+}
+
+/* --- Hamburger Menu Icon --- */
+#hamburger-menu {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: #333333;
+    cursor: pointer;
+    padding: 0; /* No extra padding */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px; /* Width of the icon */
+    height: 24px; /* Height of the icon */
+    z-index: 1005; /* Ensure hamburger is clickable over other elements if needed */
+}
+
+.hamburger-bar {
+    display: block;
+    width: 100%;
+    height: 3px; /* Thickness of the bars */
+    background-color: #333333;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out; /* For animation to 'X' */
+}
+/* ------------------------- */
+/* --- Hero Section --- */
+/* ------------------------- */
+
+#hero {
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    min-height: 40vh; /* Make it take up a good portion of the viewport height */
+    /* You could use 100vh and adjust body padding-top if header wasn't sticky,
+       but with a sticky header, 80vh or similar often works well. */
+    text-align: center;
+    padding: 0px 0px; /* Some padding */
+   /* background-color: #f8f8f8; /* Matches your off-white body background */
+    overflow: hidden; /* Prevent any accidental overflow from animations */
+}
+
+.hero-content {
+    max-width: 900px; /* Max width for the text block */
+}
+
+
+#animated-phrase-container {
+    margin: 0; /* Reset default h1 margin */
+}
+
+.animated-phrase {
+    display: inline-block;
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #222222; /* This color will apply to words NOT wrapped in .last-word-gradient */
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.animated-phrase.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: if you want a distinct fade-out before changing text */
+.animated-phrase.fading-out {
+    opacity: 0;
+    transform: translateY(-20px); /* Move up on fade out */
+    transition: opacity 0.4s ease-in, transform 0.4s ease-in;
+}
+/* style.css - Add this new class */
+
+.last-word-gradient {
+    /* --- Subtle Dark Gradient --- */
+    /* Adjust colors to fit your exact shade preferences */
+    background-image: linear-gradient(to right, #8360c3, #2ebf91); /* From a mid-dark grey to a darker grey/black */
+    
+    /* --- Crucial properties for gradient text --- */
+    -webkit-background-clip: text; /* For Safari/Chrome/Edge */
+    background-clip: text;
+    color: transparent; /* Makes the original text color transparent to show the background gradient */
+
+    /* --- Ensure it inherits font styles from parent (.animated-phrase) --- */
+    font-weight: inherit;
+    font-size: inherit;
+    /* If there's any specific letter-spacing or other text properties on .animated-phrase, ensure they apply or are inherited */
+}
+
+/* ------------------------- */
+/* --- About Section --- */
+/* ------------------------- */
+
+#about {
+    padding: 0px 0; /* Vertical padding for the section */
+     /* Off-white background to contrast with white cards */
+    /* Optional: borders might be less necessary now with cards, but you can keep them if you like */
+    /* border-top: 1px solid #e0e0e0; */
+    /* border-bottom: 1px solid #e0e0e0; */
+     position: relative;
+      z-index: 2;
+    /* This is your existing .container styling basically */
+    width: 80%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px; 
+}
+
+#about h2 {
+    text-align: center;
+    font-size: 2.8em; /* Main section heading size */
+    color: #222222;
+    margin-bottom: 20px;
+    font-weight: 700;
+    
+}
+
+#about .about-intro {
+    text-align: left;
+    font-size: 1.15em;
+    color: #555555;
+    max-width: 800px; /* Constrain width of intro paragraph */
+    margin: 0 auto 55px auto; /* Center it and add bottom margin */
+    line-height: 1.7;
+    font-weight:lighter
+    
+}
+/* style.css - Add this new rule for hover effect */
+.about-subsection:hover {
+    /* Subtle light grey gradient. Adjust colors as you like.
+       Using 'to bottom right' or other directions can change the feel. */
+    background: linear-gradient(135deg, #ccfff6, #d3dbff); /* Light grey gradient */
+    /* Alternative softer gradient: background: linear-gradient(135deg, #f9fafb, #f8f8f8); */
+    
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Slightly more pronounced shadow on hover */
+    
+    /* Optional: A very slight lift on hover.
+       However, your .is-active-point class already has a transform.
+       If you want hover to also lift, and it's different from .is-active-point,
+       be mindful of how they interact. For now, I'll keep the lift primarily for the active state. */
+    /* transform: translateY(-1px); */
+}
+
+.about-subsection {
+    background-color: #ffffff; /* White background for the card */
+    padding: 35px;             /* Inner padding for the content within the card */
+    border-radius: 30px;       /* Rounded edges - adjust as you like (e.g., 8px, 10px, 15px) */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06); /* Subtle shadow for a lifting effect */
+    margin-bottom: 20px;
+    transition: box-shadow 2s ease,
+                border-left 2s ease,  /* For .is-active-point class */
+                transform 2s ease,    /* For .is-active-point class */
+                background 2s ease;   /* For hover background gradient */       
+                /* Space between cards */
+}
+
+.about-subsection:last-child {
+    margin-bottom: 0;
+}
+
+.about-subsection h3 {
+    font-size: 1.8em; /* Sub-section heading size */
+    color: #333333;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    border-bottom: 0px solid #eeeeee; /* Subtle underline for h3 */
+    padding-bottom: 20px;
+}
+
+.about-subsection p {
+    font-size: 1em;
+    color: #444444;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Skills Grid Layout */
+.skills-grid {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
+    gap: 30px; /* Space between skill categories */
+}
+
+.skill-category h4 {
+    font-size: 1.2em;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.skill-category ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin: 0;
+}
+
+.skill-category ul li {
+    font-size: 0.95em;
+    color: #555555;
+    padding: 6px 0;
+    border-bottom: 0px solid #f0f0f0; /* Subtle separator for skills */
+    /* Or use a custom bullet/icon */
+    /* position: relative; */
+    /* padding-left: 20px; */
+}
+/*
+.skill-category ul li::before {
+    content: '✓'; // Example checkmark
+    // content: '▹'; // Example arrow
+    position: absolute;
+    left: 0;
+    color: #333; // Or your accent color
+}
+*/
+
+.skill-category ul li:last-child {
+    border-bottom: none;
+}
+
+/* Styling for "What I Bring to the Table" and "Achievements" lists */
+.contributions-list,
+.achievements-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.contributions-list li,
+.achievements-list li {
+    font-size: 1em;
+    color: #444444;
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px; /* Space for custom bullet */
+    border-bottom: 0px solid #f7f7f7; /* Very subtle separator */
+}
+.contributions-list li:last-child,
+.achievements-list li:last-child {
+    border-bottom: none;
+}
+
+.contributions-list li::before,
+.achievements-list li::before {
+    content: '▹'; /* Arrow bullet, or choose another like '•', '✓' */
+    position: absolute;
+    left: 0;
+    color: #333333; /* Color for the bullet */
+    font-size: 1.2em; /* Size of the bullet */
+    line-height: 1; /* Align bullet properly */
+}
+
+
+/* ---------------------------------- */
+/* --- Showcase Scroller Section --- */
+/* ---------------------------------- */
+
+#showcase-scroller {
+    padding: 60px 0;
+    background-color: #ffffff;
+    border-radius: 60px; /* A slightly different light grey for contrast, or use #f8f8f8 */
+    position: relative;
+overflow-x: hidden;
+     /* border-top: 1px solid #e0e0e0; 
+     border-bottom: 1px solid #e0e0e0;  */
+}
+
+/* Optional title for the scroller section */
+.scroller-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #222222;
+    margin-bottom: 0px;
+    font-weight: 700;
+}
+
+.scrolling-window-wrapper {
+    position: relative; /* For positioning scroll buttons */
+    display: flex;
+    align-items: centSer;
+    width: 100%;
+    
+   
+   
+    /*max-width: 1200px; /* Or use the .container's max-width */
+    /* margin: 0 auto; /* If not using the .container class directly on it */
+}
+.scrolling-window-wrapper-m {
+    position: relative; /* For positioning scroll buttons */
+    display: flex;
+    align-items: center;
+    width: 120%;
+    margin-left: 10%;
+   
+    /*max-width: 1200px; /* Or use the .container's max-width */
+    /* margin: 0 auto; /* If not using the .container class directly on it */
+}
+
+
+.scrolling-window {
+    display: flex; /* Lays out items horizontally */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar if any content overflows slightly */
+    scroll-behavior: smooth; /* Smooth scrolling for manual button clicks & JS scroll */
+    padding: 20px 0; /* Vertical padding for items if they have shadows etc. */
+    width: 100%; /* Take full width available from parent */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #cccccc #f8f8f8; /* For Firefox: thumb and track color */
+     
+     
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera (optional, if you want fully custom controls) */
+.scrolling-window::-webkit-scrollbar {
+    height: 4px; /* Height of the horizontal scrollbar */
+}
+.scrolling-window::-webkit-scrollbar-track {
+    background: #f8f8f8; /* Track color, match section background */
+    border-radius: 30px;
+}
+.scrolling-window::-webkit-scrollbar-thumb {
+    background-color: #cccccc; /* Thumb color */
+    border-radius: 30px;
+    border: 2px solid #f8f8f8; /* Creates padding around thumb */
+}
+.scrolling-window::-webkit-scrollbar-thumb:hover {
+    background-color: #aaaaaa;
+}
+
+
+.scroller-item {
+    flex: 0 0 auto; /* Prevents items from shrinking or growing */
+    width: 70vw; /* Each item takes up 70% of the viewport width - adjust as needed */
+    max-width: 1000px; /* Max width for an item */
+    min-width: 300px; /* Min width for smaller screens */
+    margin-left: 1vw;
+    margin-right: 1vw;
+    background-color: #f8f8f8;
+    background-image: linear-gradient(to right, #fcbc98, #f1e1c2);
+    border-radius: 30px;
+
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+     position: relative;
+    /* height: 600px; /* Or set a fixed height if all items should be same height */
+     box-shadow: 
+        /* Your existing subtle shadow for depth (optional, keep if you like it) */
+        0 4px 15px rgba(0, 0, 0, 0.07), 
+        
+        /* Left edge blend: White shadow, pulled inwards, blurred */
+        -35px 0 25px -15px rgba(255, 255, 255, 0.9), 
+        
+        /* Right edge blend: White shadow, pulled inwards, blurred */
+        35px 0 25px -15px rgba(255, 255, 255, 0.9);
+}
+
+.scroller-item:last-child {
+    margin-right: 0; /* No margin for the last item if scroll padding is handled by window */
+}
+
+.scroller-item h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.scroller-item p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 15px;
+    flex-grow: 1; /* Pushes description to bottom if content above varies in height */
+}
+
+.scroller-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 500px; /* Max height for images to prevent them from being too tall */
+    object-fit: cover; /* Or 'contain' depending on desired image display */
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.iframe-container {
+    width: 100%;
+    /* aspect-ratio: 16 / 9; /* Optional: if you want responsive aspect ratio */
+    /* For fixed height iframes, just ensure height is set on iframe itself */
+    border-radius: 6px; /* Apply to container to clip iframe corners if iframe has no border */
+    overflow: hidden; /* Clips iframe corners */
+    margin-bottom: 0px;
+}
+
+.iframe-container iframe {
+    display: block; /* Removes extra space below iframe */
+    border: none; /* Remove iframe default border */
+    width: 100%;
+    /* height is set in HTML, or can be 100% if aspect-ratio is on parent */
+}
+
+/* Scroll Buttons */
+.scroll-button {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border: 1px solid #d0d0d0;
+    color: #333;
+    font-size: 1.5em; /* Size of the arrow icon */
+    font-weight: bold;
+    padding: 10px 15px; /* Adjust padding to make buttons feel right */
+    border-radius: 50%; /* Circular buttons */
+    cursor: pointer;
+    position: absolute; /* Position relative to .scrolling-window-wrapper */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure they are above the scrolling content */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    line-height: 1; /* Helps center the icon character */
+}
+
+.scroll-button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%) scale(1.05); /* Slight scale on hover */
+}
+
+.scroll-button.prev {
+    left: -25px; /* Position outside the scroller, adjust as needed */
+}
+
+.scroll-button.next {
+    right: -25px; /* Position outside the scroller, adjust as needed */
+}
+
+/* Responsive adjustments for scroller */
+@media (max-width: 768px) {
+    .scroller-item {
+        width: 80vw; /* Items take more viewport width on smaller screens */
+        margin-right: 20px;
+    }
+    .scroll-button {
+        font-size: 1.5em;
+        padding: 12px 10px;
+    }
+    .scroll-button.prev {
+        left: -15px;
+    }
+    .scroll-button.next {
+        right: -15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #showcase-scroller {
+        padding: 40px 0;
+    }
+    .scroller-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .scroller-item {
+        width: 85vw;
+        padding: 20px;
+        margin-right: 15px;
+    }
+    .scroller-item h3 {
+        font-size: 1.2em;
+    }
+     /* Hide buttons on very small screens if they feel too cluttered, or make them smaller */
+    .scroll-button {
+        /* display: none; */ /* Option to hide */
+        font-size: 1.3em;
+        padding: 10px 8px;
+        /* Adjust positioning if they overlap too much */
+    }
+    .scroll-button.prev {
+        left: 5px; /* Bring buttons slightly inside on very small screens */
+    }
+    .scroll-button.next {
+        right: 5px;
+    }
+}
+
+
+/* ---------------------------------- */
+/* --- Responsive Media Queries --- */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+    .animated-phrase {
+        font-size: 2.5em;
+    }
+    #hero {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .animated-phrase {
+        font-size: 1.8em;
+    }
+    #hero {
+        min-height: 60vh;
+    }
+}
+
+
+/* --- Responsive Adjustments for About Section --- */
+@media (max-width: 768px) {
+    #about h2 {
+        font-size: 2.4em;
+    }
+    #about .about-intro {
+        font-size: 1.1em;
+    }
+    .about-subsection h3 {
+        font-size: 1.6em;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #about h2 {
+        font-size: 2em;
+    }
+    #about .about-intro {
+        font-size: 1em;
+    }
+    .about-subsection h3 {
+        font-size: 1.4em;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+    }
+    .contributions-list li,
+    .achievements-list li {
+        padding-left: 20px; /* Slightly less padding for bullets */
+    }
+    .contributions-list li::before,
+    .achievements-list li::before {
+        font-size: 1em;
+    }
+}
+
+
+
+/* --- Dropdown Integration with Mobile Navigation --- */
+@media (max-width: 992px) {
+    /* Hide desktop-style dropdowns and arrows on mobile */
+    .dropdown-parent > .dropdown-menu {
+        display: none !important; /* Ensure they don't show on hover by mistake */
+    }
+    .dropdown-arrow {
+        display: none; /* Hide desktop arrow on mobile */
+    }
+
+
+#scroll-button next{
+    height: 200px;
+
+}
+
+.animated-phrase.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    #nav-links.nav-active .dropdown-parent .dropdown-menu {
+        /* Override absolute positioning for mobile, make it part of the flow */
+        position: static;
+        display: block; /* Ensure sub-menu ul is block */
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-top: 1px dashed #e0e0e0; /* Optional: visual separator for sub-menu block */
+        min-width: auto; /* Reset min-width */
+        background-color: transparent; /* Inherit background or set a slightly indented one */
+        padding: 0; /* Reset padding for the ul */
+        margin-top: 5px; /* Space above sub-menu block */
+        margin-bottom: 5px; /* Space below sub-menu block */
+    }
+
+    #nav-links.nav-active .dropdown-parent .dropdown-menu li a {
+        padding-left: 40px; /* Indent sub-menu items */
+        font-size: 0.9em; /* Slightly smaller for sub-items */
+        color: #555555; /* Slightly lighter color for sub-items */
+        border-bottom: 1px solid #f9f9f9; /* Lighter border for sub-items */
+    }
+    #nav-links.nav-active .dropdown-parent .dropdown-menu li:last-child a {
+        border-bottom: none;
+    }
+
+    #nav-links.nav-active .dropdown-parent .dropdown-menu li a:hover {
+        background-color: #f0f0f0; /* Hover for mobile sub-items */
+    }
+
+    /* Adjust parent link styling if it has a dropdown in mobile to indicate it's a group */
+    #nav-links.nav-active .dropdown-parent > a {
+        /* font-weight: bold; /* Optional: make parent link bold */
+        /* You could add a different indicator here if needed, but sub-items appearing below is often enough */
+    }
+}
+
+
+
+
+/* --- Showcase Scroller Section --- */
+
+
+#nav-links li .cta-button {
+    background-color: #7d7d7d;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: BOLD; /* Adjusted from bold */
+    font-size: 0.85em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#nav-links li .cta-button:hover {
+    background-color: #000000; /* Darker on hover */
+    color: #ffffff;
+}
+
+
+/* ------------------------------------- */
+/* ---          Footer          --- */
+/* ------------------------------------- */
+
+
+footer {
+    background-color: #ffffff; /* White background, or match your body if it's off-white */
+    color: #4b4b4b; /* Default text color for footer, matches your body */
+    padding: 60px 0 40px 0; /* Top/bottom padding */
+    border-top: 1px solid #e0e0e0; /* Subtle top border */
+    font-size: 0.9em; /* Base font size for footer content */
+    line-height: 1.6;
+}
+
+.footer-main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive columns */
+    gap: 30px 20px; /* Gap between rows and columns */
+}
+
+.footer-column h4 {
+    font-size: 1em; /* Slightly larger than link text */
+    font-weight: 600; /* Bolder */
+    color: #333333;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a,
+.footer-cookie-link,
+.footer-explore-more {
+    color: #4b4b4b; /* Link color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover,
+.footer-cookie-link:hover,
+.footer-explore-more:hover {
+    color: #000000; /* Darker on hover */
+    text-decoration: underline;
+}
+
+/* Column 1: Brand Info specific styles */
+.footer-column-brand-info .footer-logo-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Larger for logo text */
+    font-weight: bold;
+    color: #222222;
+    text-decoration: none;
+}
+
+.footer-column-brand-info .logo-icon-placeholder {
+    /* Style your placeholder or SVG/img */
+    margin-right: 8px;
+    /* If it's an actual image: */
+    /* img.logo-image { height: 30px; width: auto; margin-right: 8px; } */
+}
+
+.footer-social-icons {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.footer-social-icons li {
+    margin-right: 15px; /* Space between icons */
+    margin-bottom: 0;
+}
+
+.footer-social-icons li a {
+    font-size: 1.2em; /* Adjust if using text placeholders, or for icon size */
+    color: #4b4b4b;
+    text-decoration: none;
+}
+.footer-social-icons li a:hover {
+    color: #000000;
+}
+/* Placeholder for actual SVG icons if you use them:
+.footer-social-icons li a svg { width: 20px; height: 20px; fill: currentColor; }
+*/
+
+.footer-language-selector button {
+    background-color: transparent;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    color: #4b4b4b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.footer-language-selector button:hover {
+    border-color: #aaaaaa;
+    background-color: #f8f8f8;
+}
+.footer-language-selector .icon-globe { /* Placeholder for globe icon */
+    margin-right: 6px;
+}
+.footer-language-selector .arrow-down {
+    margin-left: 8px;
+    font-size: 0.8em;
+}
+
+.footer-legal-text,
+.footer-column-brand-info p { /* Target paragraphs in the brand column specifically */
+    font-size: 0.85em;
+    color: #777777; /* Lighter color for less prominent text */
+    margin-bottom: 8px;
+}
+
+.footer-cookie-link {
+    font-size: 0.85em;
+    color: #777777;
+}
+
+.footer-copyright {
+    font-size: 0.85em;
+    color: #777777;
+    margin-top: 15px; /* More space before copyright */
+}
+
+/* Explore More Link */
+.footer-explore-more {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #333; /* Slightly more prominent */
+}
+.footer-explore-more .arrow-right {
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+.footer-explore-more:hover .arrow-right {
+    transform: translateX(3px);
+}
+
+/* --- Responsive Footer --- */
+@media (max-width: 992px) {
+    .footer-main-content {
+        /* Adjust columns for tablets, e.g., 2 or 3 columns */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+    }
+    .footer-column-brand-info {
+        grid-column: span 1 / auto; /* Allow brand info to take full width if needed or span columns */
+        /* Or keep it as a regular column */
+        margin-bottom: 20px; /* Add space if it stacks above others */
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 0 30px 0;
+    }
+    .footer-main-content {
+        /* Stack columns on smaller screens */
+        grid-template-columns: 1fr; /* Each column takes full width */
+        gap: 30px; /* Increased gap when stacked */
+    }
+    .footer-column {
+        text-align: left; /* Reset text-align if it was centered on larger screens for some reason */
+    }
+    .footer-column-brand-info {
+        /* Styles for brand info when stacked */
+        margin-bottom: 30px;
+    }
+    .footer-social-icons {
+        justify-content: flex-start; /* Align social icons to left */
+    }
+    .footer-language-selector button {
+        /* Ensure it doesn't take full width unless desired */
+        /* display: inline-flex; */
+    }
+}
+#contact-form-section {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Light grey background for the whole section */
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    gap: 40px; /* Space between columns */
+}
+
+.contact-info-column,
+.contact-form-column {
+    flex: 1; /* Allow columns to grow */
+    min-width: 320px; /* Minimum width before wrapping */
+}
+
+/* Left Column Styling */
+.contact-heading {
+    font-size: 3.5em; /* Large heading */
+    font-weight: 700;
+    color: #222;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.contact-heading .heading-highlight {
+    /* color: #555; */ /* Could be a slightly different color or weight if desired */
+    display: block; /* Puts "Let's talk!" on a new line */
+}
+
+.contact-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.contact-checklist li {
+    margin-bottom: 12px;
+    font-size: 1em;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+}
+
+.contact-checklist .checkmark-icon {
+    color: #28a745; /* Green checkmark, or your theme accent */
+    margin-right: 10px;
+    font-size: 1.2em;
+    line-height: 1.2;
+}
+
+.contact-subheading {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.profile-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    max-width: 350px; /* Max width for the card */
+}
+
+.profile-image {
+    width: 60px; /* Adjust size */
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.profile-details {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 4px 0;
+}
+
+.profile-title {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+}
+
+.calendar-button {
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Example gradient */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.5em; /* Icon size */
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+.calendar-button:hover {
+    opacity: 0.9;
+}
+.calendar-icon-placeholder {
+    /* Styles if using a text character, SVG will have its own size */
+}
+
+
+/* Right Column (Form) Styling */
+.contact-form-column {
+    background-color: #ffffff; /* White card for the form area */
+    padding: 30px 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between items in a row */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1; /* Each group takes equal space in a row */
+    min-width: calc(50% - 10px); /* For two items per row, accounting for gap */
+    display: flex;
+    flex-direction: column;
+}
+.form-group:last-child {
+   /* margin-bottom: 0; /* No bottom margin if it's the last in a column flow */
+}
+/* Full width for single items not in a row or for textarea */
+#inquiry-form .form-group:has(textarea) { /* More modern selector, or add a specific class */
+    min-width: 100%;
+}
+#inquiry-form > .form-group { /* Direct children form groups (like textarea) take full width */
+    min-width: 100%;
+    margin-bottom: 20px;
+}
+
+
+/* Visually hidden label for accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+#inquiry-form input[type="email"],
+#inquiry-form input[type="text"],
+#inquiry-form select,
+#inquiry-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 0.95em;
+    color: #333;
+    background-color: #fdfdfd;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#inquiry-form input[type="email"]:focus,
+#inquiry-form input[type="text"]:focus,
+#inquiry-form select:focus,
+#inquiry-form textarea:focus {
+    outline: none;
+    border-color: #6a11cb; /* Accent color on focus */
+    box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+}
+
+#inquiry-form select {
+    appearance: none; /* Remove default select arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 1em;
+    padding-right: 40px; /* Make space for custom arrow */
+}
+#inquiry-form option[disabled] {
+    color: #999;
+}
+
+#inquiry-form textarea {
+    resize: vertical; /* Allow vertical resize, disable horizontal */
+    min-height: 100px;
+}
+
+.form-subheading {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.service-tag {
+    background-color: #f0f2f5;
+    border: 1px solid #e0e2e5;
+    color: #444;
+    padding: 8px 15px;
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.service-tag:hover,
+.service-tag.active { /* Add .active class with JS for selection */
+    background-color: #e2e8f0;
+    border-color: #cbd5e1;
+    color: #1a202c;
+}
+
+.submit-inquiry-button {
+    display: inline-block;
+    width: 100%; /* Full width button */
+    padding: 14px 20px;
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Example gradient */
+    color: #ffffff;
+    font-size: 1.05em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.2s ease;
+    margin-bottom: 15px;
+}
+
+.submit-inquiry-button:hover {
+    opacity: 0.9;
+}
+
+.prefer-email {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.prefer-email a {
+    color: #6a11cb; /* Accent color */
+    text-decoration: none;
+    font-weight: 500;
+}
+.prefer-email a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments for Contact Section */
+@media (max-width: 768px) {
+    .contact-heading {
+        font-size: 2.8em;
+    }
+    .contact-form-column {
+        padding: 25px 20px;
+    }
+    .form-row {
+        flex-direction: column; /* Stack inputs in a row on smaller screens */
+        gap: 0; /* Remove gap if stacking, rely on form-group margin */
+    }
+    .form-group {
+        min-width: 100%; /* Full width for all form groups */
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 480px) {
+     #contact-form-section {
+        padding: 60px 0;
+    }
+    .contact-heading {
+        font-size: 2.2em;
+    }
+}
+
+/* ------------------------------------- */
+/* --- Mobile Responsiveness - Header --- */
+/* ------------------------------------- */
+@media (max-width: 992px) { /* Adjust this breakpoint as needed */
+
+    #main-header .header-container {
+        padding: 0 15px; /* Slightly less side padding for header content on mobile */
+    }
+
+    #nav-links { /* The UL navigation list */
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column; /* Stack links vertically when shown */
+        position: absolute;
+        top: 80px; /* Position below the header (must match header height) */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff; /* Background for the mobile menu dropdown */
+        box-shadow: 0 3px 5px rgba(0,0,0,0.08); /* Shadow for the dropdown */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: 1px solid #f0f0f0; /* Optional top border for separation */
+    }
+
+    /* This class will be toggled by JavaScript to show/hide mobile nav */
+    #nav-links.nav-active {
+        display: flex;
+    }
+
+    #nav-links li {
+        margin: 0; /* Reset horizontal margin */
+        width: 100%;
+        text-align: left; /* Align text to the left */
+    }
+
+    #nav-links li a {
+        display: block; /* Make links take full width for easier tapping */
+        padding: 14px 25px; /* Ample padding for touch targets */
+        border-bottom: 1px solid #f0f0f0; /* Separator line between links */
+        font-size: 0.95em;
+    }
+
+    #nav-links li:last-child a {
+        border-bottom: none; /* Remove border from the last link */
+    }
+
+    #nav-links li a.cta-button {
+        margin: 10px 25px; /* Margin for CTA inside mobile nav */
+        padding: 12px 15px;
+        text-align: center; /* Center text for CTA button */
+        width: calc(100% - 50px); /* Make CTA button take noticeable width */
+    }
+    #nav-links li a.cta-button:hover {
+         background-color: #000000; /* Consistent hover for CTA */
+    }
+
+    #hamburger-menu {
+        display: flex; /* Show hamburger icon on mobile */
+    }
+
+    /* Flexbox order for mobile layout within .header-container */
+    /* .logo is first by default (no explicit order needed if it's first in HTML) */
+    /* #main-nav contains the hamburger, so it's positioned by #main-nav's order */
+    #main-header .logo { order: 1; margin-right: auto; /* Pushes other items to the right */ }
+    #theme-toggle     { order: 2; margin-left: 10px; } /* Theme toggle before hamburger */
+    #main-nav         { order: 3; margin-left: 10px; /* #main-nav now effectively just represents the hamburger for layout */ }
+}
+
+/* --- Hamburger Icon Animation to 'X' --- */
+/* This class ('active') will be added to #hamburger-menu via JavaScript */
+#hamburger-menu.active .hamburger-bar:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg); /* Adjust translateY based on bar height/spacing */
+}
+
+#hamburger-menu.active .hamburger-bar:nth-child(2) {
+    opacity: 0; /* Middle bar fades out */
+}
+
+#hamburger-menu.active .hamburger-bar:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg); /* Adjust translateY */
+}
+/*auto scroll start*/
+#team-innovation-carousel {
+    padding: 60px 0;
+    background-color: #ffffff; /* Assuming a white background as per image */
+    overflow: hidden; /* To contain the full-width scroller neatly */
+}
+
+#team-innovation-carousel .section-headline-container {
+    /* Uses the global .container for width and centering */
+    text-align: left; /* As per image, headline is left-aligned */
+    margin-bottom: 30px;
+}
+
+.carousel-headline {
+    font-size: 2.0em; /* Adjust as needed */
+    font-weight: 700;
+    
+    color: #222222;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.carousel-headline .headline-subtitle {
+    font-weight: 400; /* Lighter weight for the second line */
+    color: #555555; /* Grey color for subtitle */
+    display: block; /* Ensure it's on a new line if not already due to <br> */
+}
+
+.image-carousel-wrapper {
+    position: relative; /* For scroll button positioning */
+    width: 80%;
+    /* display: flex; align-items: center; /* Not strictly needed if buttons are absolute */
+}
+
+.image-carousel-window {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    /* No vertical padding needed if items themselves manage their content spacing */
+    padding: 10px 0; /* Minimal vertical padding for breathing room */
+    -webkit-overflow-scrolling: touch;
+    /* Optional: style scrollbar, or hide it if buttons are primary navigation */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.image-carousel-window::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.carousel-item {
+    flex: 0 0 auto; /* Don't shrink/grow */
+    width: auto; /* Let images dictate width primarily, or set a fixed/relative width */
+    /* To achieve the look where images are prominent and somewhat continuous: */
+    max-height: 350px; /* Set a max-height for the items/images for consistency */
+    margin-right: 15px; /* Space between items */
+    text-align: center; /* Center caption text */
+    display: flex;
+    flex-direction: column;
+}
+.carousel-item:first-child {
+    margin-left: 5vw; /* Start with some space from viewport edge */
+}
+.carousel-item:last-child {
+    margin-right: 5vw; /* End with some space from viewport edge */
+}
+
+
+.carousel-image {
+    display: block;
+    height: 100%; /* Image tries to fill the item height */
+    max-height: 320px; /* Max height of the image itself */
+    width: auto; /* Maintain aspect ratio, adjust based on desired width if not using item width */
+    object-fit: cover; /* Cover the area, might crop */
+    border-radius: 8px; /* Slight rounding on images */
+    /* box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Optional subtle shadow on images */
+}
+
+.carousel-caption {
+    font-size: 0.85em;
+    color: #555555;
+    margin-top: 10px;
+    padding: 0 5px; /* Some padding if text is long */
+}
+.scrolling-window-wrapper{
+    margin-left: 8%;
+    
+}
+
+
+/* Scroll buttons will use existing .scroll-button styles.
+   If you need different positioning for THIS scroller's buttons: */
+.image-carousel-wrapper .scroll-button.prev {
+    left: 15px; /* Adjust if needed */
+}
+.image-carousel-wrapper .scroll-button.next {
+    right: 15px; /* Adjust if needed */
+}
+
+/* --- Responsive Adjustments for Image Carousel --- */
+@media (max-width: 992px) {
+    .carousel-headline {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    #team-innovation-carousel .section-headline-container {
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+    .carousel-headline {
+        font-size: 2.2em;
+    }
+    .carousel-item {
+        max-height: 300px; 
+    }
+    .carousel-item:first-child { margin-left: 4vw; }
+    .carousel-item:last-child { margin-right: 4vw; }
+}
+
+@media (max-width: 480px) {
+    #team-innovation-carousel {
+        padding: 0px ;
+    }
+    .carousel-headline {
+        font-size: 1.8em;
+    }
+    .carousel-item {
+        max-height: 250px; 
+        margin-right: 10px;
+    }
+    .carousel-item:first-child { margin-left: 5vw; }
+    .carousel-item:last-child { margin-right: 5vw; }
+}
+
+/*auto scroll end */
+
+/* --- FAQ Section Styles --- */
+#faq-section {
+    padding: 60px 0;
+    background-color: #ffffff; /* Or your preferred page background */
+}
+
+.faq-main-title {
+    font-size: 2.8em; /* Matches your #about h2 */
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 40px;
+    text-align: left; /* As per image */
+}
+
+.faq-list {
+    max-width: 800px; /* Or adjust to your preference */
+    /* margin: 0 auto; /* Optional: if you want to center the FAQ block if container is wider */
+}
+
+.faq-item {
+    border-top: 1px solid #e0e0e0; /* Separator line */
+}
+
+.faq-item:last-child {
+    border-bottom: 1px solid #e0e0e0; /* Separator line for the last item too */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0; /* Vertical padding for the question */
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    font-family: inherit; /* Inherit font from body/section */
+    font-size: 1.1em; /* Adjust as needed */
+    font-weight: 500; /* Slightly bolder than regular text */
+    color: #333333;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Subtle hover effect if desired */
+}
+
+/* .faq-question:hover {
+    background-color: #f9f9f9; /* Optional hover effect 
+} */
+
+.faq-question-text {
+    flex-grow: 1;
+    margin-right: 15px; /* Space before the icon */
+}
+
+.faq-icon {
+    font-size: 1.4em;
+    font-weight: 300; /* Lighter weight for + / x icons */
+    color: #555555;
+    transition: transform 0.3s ease; /* For rotating icon if desired */
+}
+
+
+
+.faq-answer {
+    padding: 0 0 25px 0; /* Padding below question, before next item's border */
+    color: #4b4b4b; /* Matches your body text color */
+    line-height: 1.7;
+    font-size: 0.95em;
+    /* --- Initial state for smooth transition --- */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding-top 0.4s ease-out, padding-bottom 0.4s ease-out;
+    /* We can also transition padding if we add it when open */
+}
+
+
+.faq-answer p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Responsive FAQ --- */
+@media (max-width: 768px) {
+    .faq-main-title {
+        font-size: 2.4em;
+    }
+    .faq-question {
+        font-size: 1em;
+    }
+    .faq-icon {
+        font-size: 1.2em;
+    }
+}
+
+/* --- FAQ Section Styles ends --- */
