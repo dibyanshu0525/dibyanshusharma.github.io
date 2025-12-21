@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Dibyanshu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container header-container">
+        <a href="#home" class="logo"> Dizzy </a>
+        <nav id="main-nav">
+          <button
+            id="hamburger-menu"
+            aria-label="Toggle Menu"
+            aria-expanded="false"
+          >
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+          <ul id="nav-links">
+            <li><a href="index_v1.html">Home</a></li>
+
+            <li class="dropdown-parent">
+              <a href="#projects"
+                >Projects <span class="dropdown-arrow">&#9662;</span></a
+              >
+              <ul class="dropdown-menu">
+                <li><a href="#project-web">Web Design</a></li>
+                <li><a href="#project-graphic">Graphic Design</a></li>
+                <li><a href="#project-powerbi">Power BI Dashboards</a></li>
+                <li><a href="#project-case-studies">Case Studies</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown-parent">
+              <a href="#services"
+                >Services <span class="dropdown-arrow">&#9662;</span></a
+              >
+              <ul class="dropdown-menu">
+                <li><a href="#service-uiux">UI/UX Design</a></li>
+                <li><a href="#service-consulting">Consulting</a></li>
+                <li><a href="#service-workshops">Workshops</a></li>
+              </ul>
+            </li>
+
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#blog">Blog/Insights</a></li>
+            <!-- <li><a href="your-resume.pdf" target="_blank">Resume/CV</a></li> -->
+            <li><a href="#hire-me" class="cta-button">Book a Call</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">&#9789;</button>
+      </div>
+    </header>
+
+    <section id="contact-form-section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info-column">
+            <h2 class="contact-heading">
+              Got a Project?<br /><span class="heading-highlight"
+                >Let's talk!</span
+              >
+            </h2>
+            <ul class="contact-checklist">
+              <li>
+                <span class="checkmark-icon">&#10003;</span> NDA? Absolutely
+                just ask.
+              </li>
+              <li>
+                <span class="checkmark-icon">&#10003;</span> We'll respond in 24
+                hours: fast & focused.
+              </li>
+              <li>
+                <span class="checkmark-icon">&#10003;</span> Work with senior UX
+                experts, not juniors.
+              </li>
+            </ul>
+
+            <h3 class="contact-subheading">Schedule a call:</h3>
+            <div class="profile-card">
+              <img
+                src="https://placehold.co/80x80/e2e8f0/333?text=You"
+                alt="Your Name"
+                class="profile-image"
+              />
+              <div class="profile-details">
+                <p class="profile-name">Your Name</p>
+                <p class="profile-title">Data Engineer & BI Consultant</p>
+              </div>
+              <a
+                href="#your-calendar-link"
+                class="calendar-button"
+                aria-label="Schedule a call"
+              >
+                <span class="calendar-icon-placeholder">&#128197;</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-column">
+            <form id="inquiry-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email" class="sr-only">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="full-name" class="sr-only">Full name</label>
+                  <input
+                    type="text"
+                    id="full-name"
+                    name="full-name"
+                    placeholder="Full name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="project-budget" class="sr-only"
+                    >Project budget</label
+                  >
+                  <select id="project-budget" name="project-budget">
+                    <option value="" disabled selected>Project budget</option>
+                    <option value="<5k">&lt; $5,000</option>
+                    <option value="5k-10k">$5,000 - $10,000</option>
+                    <option value="10k-25k">$10,000 - $25,000</option>
+                    <option value="25k+">$25,000+</option>
+                    <option value="tbd">To be determined</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="how-heard" class="sr-only"
+                    >How did you hear about us?</label
+                  >
+                  <select id="how-heard" name="how-heard">
+                    <option value="" disabled selected>
+                      How did you hear about us?
+                    </option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="referral">Referral</option>
+                    <option value="search">Search Engine</option>
+                    <option value="social-media">Social Media</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="product-goals" class="sr-only"
+                  >Tell us about your product and goals.</label
+                >
+                <textarea
+                  id="product-goals"
+                  name="product-goals"
+                  rows="4"
+                  placeholder="Tell us about your product and goals."
+                ></textarea>
+              </div>
+
+              <h4 class="form-subheading">How can we help you?</h4>
+              <div class="service-tags">
+                <button type="button" class="service-tag">UI/UX Design</button>
+                <button type="button" class="service-tag">SaaS Design</button>
+                <button type="button" class="service-tag">Branding</button>
+                <button type="button" class="service-tag">CRO</button>
+                <button type="button" class="service-tag">Mobile app</button>
+                <button type="button" class="service-tag">Development</button>
+                <button type="button" class="service-tag">
+                  MVP Development
+                </button>
+                <button type="button" class="service-tag">Web Design</button>
+              </div>
+
+              <button type="submit" class="submit-inquiry-button">
+                Send inquiry
+              </button>
+              <p class="prefer-email">
+                Prefer email?
+                <a href="mailto:your.email@example.com">hello@youragency.com</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-section">
+      <div class="container">
+        <h2 class="faq-main-title">Questions & answers</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-expanded="false"
+              aria-controls="faq-answer-1"
+            >
+              <span class="faq-question-text"
+                >How much does Notion AI cost?</span
+              >
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1">
+              <p>
+                Notion AI is included in the price of Notion's Business and
+                Enterprise plans. If you aren’t on these plans, your workspace
+                will have a limited amount of trial usage of Notion AI
+                functionality.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-expanded="false"
+              aria-controls="faq-answer-2"
+            >
+              <span class="faq-question-text"
+                >How does Notion AI use my data?</span
+              >
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2">
+              <p>
+                Your data is your data. We do not use your data to train our AI
+                models without your permission. Any data used by Notion AI is
+                protected by the same security practices that keep your
+                information safe and private in Notion.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-expanded="false"
+              aria-controls="faq-answer-3"
+            >
+              <span class="faq-question-text"
+                >What can Notion AI help me do?</span
+              >
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3">
+              <p>
+                Notion AI can help you write, brainstorm, edit, summarize, and
+                more. It can generate text, create tables, help you fix spelling
+                and grammar, translate content, and extract key insights from
+                your notes and documents.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              aria-expanded="false"
+              aria-controls="faq-answer-4"
+            >
+              <span class="faq-question-text"
+                >How can I learn more about Notion AI?</span
+              >
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4">
+              <p>
+                You can visit our help center, read our blog posts about AI
+                features, or explore templates that showcase Notion AI
+                capabilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-main-content">
+          <div class="footer-column footer-column-brand-info">
+            <a href="index.html" class="footer-logo-link">
+              <span class="logo-icon-placeholder">[L]</span>
+              <span class="logo-text">BrandName</span>
+            </a>
+            <ul class="footer-social-icons">
+              <li>
+                <a href="#" aria-label="Instagram" title="Instagram">[IG]</a>
+              </li>
+              <li>
+                <a href="#" aria-label="X (Twitter)" title="X (Twitter)">[X]</a>
+              </li>
+              <li>
+                <a href="#" aria-label="LinkedIn" title="LinkedIn">[LI]</a>
+              </li>
+              <li>
+                <a href="#" aria-label="Facebook" title="Facebook">[FB]</a>
+              </li>
+              <li><a href="#" aria-label="YouTube" title="YouTube">[YT]</a></li>
+            </ul>
+            <div class="footer-language-selector">
+              <button type="button" aria-label="Select Language">
+                <span class="icon-globe">[G]</span>
+                English
+                <span class="arrow-down">&#9662;</span>
+              </button>
+            </div>
+            <p class="footer-legal-text">
+              We do not sell or share your personal information
+            </p>
+            <p><a href="#" class="footer-cookie-link">Cookie settings</a></p>
+            <p class="footer-copyright">&copy; 2025 BrandName Inc.</p>
+          </div>
+
+          <div class="footer-column footer-column-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Status</a></li>
+              <li><a href="#">Terms & privacy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column footer-column-links">
+            <h4>Download</h4>
+            <ul>
+              <li><a href="#">iOS & Android</a></li>
+              <li><a href="#">Mac & Windows</a></li>
+              <li><a href="#">Calendar</a></li>
+              <li><a href="#">Web Clipper</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column footer-column-links">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Help center</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">Integrations</a></li>
+              <li><a href="#">Templates</a></li>
+              <li><a href="#">Affiliates</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column footer-column-links">
+            <h4>Notion for</h4>
+            <ul>
+              <li><a href="#">Enterprise</a></li>
+              <li><a href="#">Small business</a></li>
+              <li><a href="#">Personal</a></li>
+            </ul>
+            <a href="#" class="footer-explore-more">
+              Explore more <span class="arrow-right">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Hamburger Menu Toggle (copy from index.html if not in a shared JS file)
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger-menu");
+        const navLinks = document.getElementById("nav-links");
+
+        if (hamburger && navLinks) {
+          hamburger.addEventListener("click", function () {
+            navLinks.classList.toggle("nav-active");
+            hamburger.classList.toggle("active");
+            const isExpanded = navLinks.classList.contains("nav-active");
+            hamburger.setAttribute("aria-expanded", isExpanded);
+          });
+        }
+
+        // Scroll line animation script (copy from your previous implementation)
+        // Ensure all element IDs like 'about', 'helix-path', '.about-subsection' exist on this page
+        const aboutSection = document.getElementById("about");
+        const svgPath = document.getElementById("helix-path");
+        const subsections = document.querySelectorAll(
+          "#about .about-subsection"
+        ); // These are on this page
+
+        if (aboutSection && svgPath && subsections.length > 0) {
+          // ... (Paste your full scroll line JavaScript logic here) ...
+          // Example:
+          // let pathLength;
+          // function setupLine() { ... }
+          // function updateLineOnScroll() { ... }
+          // const subsectionObserver = new IntersectionObserver(...);
+          // subsections.forEach(subsection => subsectionObserver.observe(subsection));
+          // setupLine();
+          // updateLineOnScroll();
+          // window.addEventListener('scroll', updateLineOnScroll);
+          // window.addEventListener('resize', () => { setupLine(); updateLineOnScroll(); });
+          console.log("Scroll line JS should be active on about.html");
+        } else {
+          if (!aboutSection)
+            console.warn(
+              "About section for scroll line not found on about.html"
+            );
+          if (!svgPath)
+            console.warn("SVG path for scroll line not found on about.html");
+          if (subsections.length === 0)
+            console.warn("Subsections for observer not found on about.html");
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ... (your existing hamburger menu JS, header scroll JS, hero animation JS, scroller JS, etc.) ...
+
+        // --- FAQ Accordion JS ---
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+          const questionButton = item.querySelector(".faq-question");
+          const answerPanel = item.querySelector(".faq-answer");
+          const iconElement = questionButton.querySelector(".faq-icon");
+
+          if (questionButton && answerPanel && iconElement) {
+            questionButton.addEventListener("click", () => {
+              const isActive = item.classList.contains("active");
+
+              // Optional: Close all other open items for a true accordion
+              // faqItems.forEach(otherItem => {
+              //     if (otherItem !== item && otherItem.classList.contains('active')) {
+              //         otherItem.classList.remove('active');
+              //         otherItem.querySelector('.faq-answer').style.maxHeight = null;
+              //         otherItem.querySelector('.faq-icon').textContent = '+';
+              //         otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+              //     }
+              // });
+
+              item.classList.toggle("active");
+
+              if (item.classList.contains("active")) {
+                questionButton.setAttribute("aria-expanded", "true");
+                answerPanel.style.maxHeight = answerPanel.scrollHeight + "px";
+                // Add padding when opening for a better visual separation
+                answerPanel.style.paddingTop = "10px";
+                // answerPanel.style.paddingBottom = "25px"; // Already handled by main padding
+                iconElement.textContent = "x"; // Or '–' (en dash: \u2013)
+              } else {
+                questionButton.setAttribute("aria-expanded", "false");
+                answerPanel.style.maxHeight = null;
+                answerPanel.style.paddingTop = null;
+                // answerPanel.style.paddingBottom = null;
+                iconElement.textContent = "+";
+              }
+            });
+          }
+        });
+        // --- End of FAQ Accordion JS ---
+      });
+    </script>
+  </body>
+</html>
